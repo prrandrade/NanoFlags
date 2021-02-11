@@ -3,12 +3,14 @@
     using System;
     using System.Linq;
     using Interfaces;
+    using LiteDB;
     using Microsoft.Extensions.DependencyInjection;
 
     public static class Extensions
     {
         public static void AddNanoFlags(this ServiceCollection @this)
         {
+            @this.AddSingleton<ILiteDatabase>(new LiteDatabase(@"flags.db"));
             @this.AddSingleton<IFlagRepository, FlagRepository>();
 
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())

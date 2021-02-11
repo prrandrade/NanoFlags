@@ -1,6 +1,8 @@
 ﻿namespace NanoFlags.Example
 {
     using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Microsoft.Extensions.DependencyInjection;
 
     internal class Program
@@ -11,7 +13,7 @@
 
             serviceCollection.AddNanoFlags();
             var serviceProvider = serviceCollection.BuildServiceProvider();
-            
+
             var flagBool = serviceProvider.GetService<ExampleBooleanFlag>();
             var flagDouble = serviceProvider.GetService<ExampleDoubleFlag>();
             var flagInt = serviceProvider.GetService<ExampleIntFlag>();
@@ -29,6 +31,31 @@
             var valueInt = flagInt.GetValue();
             var valueString = flagString.GetValue();
             var valueDateTime = flagDateTime.GetValue();
+
+
+            var flagTest = serviceProvider.GetService<ExampleBooleanFlag>();
+
+            var l = new List<Task>();
+
+            for (var i = 0; i < 10; i++)
+            {
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest.SetValue(false);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - Value is now false");
+                }));
+            }
+
+            for (var i = 0; i < 10; i++)
+            {
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest.SetValue(true);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} -Value is now true");
+                }));
+            }
+
+            Task.WaitAll(l.ToArray());
         }
     }
 }

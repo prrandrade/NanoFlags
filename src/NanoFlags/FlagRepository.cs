@@ -8,10 +8,9 @@
     {
         private readonly ILiteCollection<FlagValue> _flagCollection;
 
-        public FlagRepository()
+        public FlagRepository(ILiteDatabase liteDatabase)
         {
-            var db = new LiteDatabase(@"flags.db");
-            _flagCollection = db.GetCollection<FlagValue>();
+            _flagCollection = liteDatabase.GetCollection<FlagValue>();
         }
 
         public void SetValue<T>(string name, T value)
