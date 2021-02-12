@@ -31,27 +31,129 @@
             var valueInt = flagInt.GetValue();
             var valueString = flagString.GetValue();
             var valueDateTime = flagDateTime.GetValue();
-
-
-            var flagTest = serviceProvider.GetService<ExampleBooleanFlag>();
+            
+            
+            var flagTest0 = serviceProvider.GetService<TestFlag0>();
+            var flagTest1 = serviceProvider.GetService<TestFlag1>();
+            var flagTest2 = serviceProvider.GetService<TestFlag2>();
+            var flagTest3 = serviceProvider.GetService<TestFlag3>();
+            var flagTest4 = serviceProvider.GetService<TestFlag4>();
+            var flagTest5 = serviceProvider.GetService<TestFlag5>();
+            var flagTest6 = serviceProvider.GetService<TestFlag6>();
+            var flagTest7 = serviceProvider.GetService<TestFlag7>();
+            var flagTest8 = serviceProvider.GetService<TestFlag8>();
+            var flagTest9 = serviceProvider.GetService<TestFlag9>();
 
             var l = new List<Task>();
 
-            for (var i = 0; i < 10; i++)
+            
+            // flagTest0
+            for (var i = 0; i < 100; i++)
             {
+                var j = i;
                 l.Add(Task.Factory.StartNew(() =>
                 {
-                    flagTest.SetValue(false);
-                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - Value is now false");
+                    flagTest0.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest0)} is changed!");
                 }));
             }
-
-            for (var i = 0; i < 10; i++)
+            
+            // flagTest1
+            for (var i = 0; i < 100; i++)
             {
+                var j = i;
                 l.Add(Task.Factory.StartNew(() =>
                 {
-                    flagTest.SetValue(true);
-                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} -Value is now true");
+                    flagTest1.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest1)} is changed!");
+                }));
+            }
+            
+            // flagTest2
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest2.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest2)} is changed!");
+                }));
+            }
+            
+            // flagTest3
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest3.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest3)} is changed!");
+                }));
+            }
+            
+            // flagTest4
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest4.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest4)} is changed!");
+                }));
+            }
+            
+            // flagTest5
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest5.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest5)} is changed!");
+                }));
+            }
+            
+            // flagTest6
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest6.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest6)} is changed!");
+                }));
+            }
+            
+            // flagTest7
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest7.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest7)} is changed!");
+                }));
+            }
+            
+            // flagTest8
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest8.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest8)} is changed!");
+                }));
+            }
+            
+            // flagTest9
+            for (var i = 0; i < 100; i++)
+            {
+                var j = i;
+                l.Add(Task.Factory.StartNew(() =>
+                {
+                    flagTest9.SetValue(j % 2 == 0);
+                    Console.WriteLine($"{DateTime.Now:HH:mm:ss.ffff} - {nameof(flagTest9)} is changed!");
                 }));
             }
 
